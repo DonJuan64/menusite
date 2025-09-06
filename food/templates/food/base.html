@@ -11,19 +11,23 @@
 </head>
 <body>
 
+            <nav class="navbar navbar-dark bg-dark px-4">
+                <a href="#" class="navbar-brand">FoodApp</a>
 
-    
-    <nav class="navbar navbar-dark bg-dark px-4">
-        <a href="#" class="navbar-brand">FoodApp</a>
-      
-        <div class="d-flex justify-content-evenly w-100">
-          <a class="nav-item nav-link text-white" href="{% url 'food:create_item' %}">Add Item</a>
-          <a class="nav-item nav-link text-white" href="#">Delete Item</a>
-          <a class="nav-item nav-link text-white" href="#">Menu Item</a>
-        </div>
-      </nav>
-
-
+                <div class="d-flex justify-content-evenly w-100">
+                    <a class="nav-item nav-link text-white" href="{% url 'food:create_item' %}">Add Item</a>
+                    <a class="nav-item nav-link text-white" href="#">Delete Item</a>
+                    <a class="nav-item nav-link text-white" href="#">Menu Item</a>
+                </div>
+            </nav>
+            {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+                    
+                {% endfor %}
+            {% endif %} 
 
 
         {% block body %}
